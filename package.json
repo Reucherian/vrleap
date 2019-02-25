@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
+    "aframe": "^0.9.0",
     "core-js": "^2.5.4",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
@@ -44,5 +45,23 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.2.2"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.3.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Reucherian/vrleap.git"
+  },
+  "keywords": [
+    "leap",
+    "webvr",
+    "aframe",
+    "leap-motion"
+  ],
+  "author": "reucherian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Reucherian/vrleap/issues"
+  },
+  "homepage": "https://github.com/Reucherian/vrleap#readme"
 }
