@@ -1,18 +1,18 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<a-scene foo light="defaultLightsEnabled:false" vr-mode-ui="enabled: true">
+<a-scene light="defaultLightsEnabled:false" vr-mode-ui="enabled: true">
   <a-assets>
     <img id="rounded_edges" src="../assets/poster1.png">
     <img id="poster1" src="../assets/poster2.png">
     <img id="poster2" src="../assets/rounded_edges.png">
   </a-assets>
-  
+
   <a-entity light="type: ambient; color: #FFFFFF; intensity: 0.58" position="0 4 0">
   </a-entity>
   <a-entity light="type: spot; castShadow:true; color: #FFFFFF; intensity: 0.3" position="0 2 0">
   </a-entity>
   <a-entity light="type: spot; castShadow:true; color: #FFFFFF; intensity: 0.3" position="0 1 0">
   </a-entity>
-  <a-entity id="hexagon" animation="property: rotation; to:0 -60 0;startEvents :rot0, repeat: 1" animation__2="property: rotation; to:0 -120 0;startEvents :rot1, repeat: 1"
+  <a-entity foo id="hexagon" animation="property: rotation; to:0 -60 0;startEvents :rot0, repeat: 1" animation__2="property: rotation; to:0 -120 0;startEvents :rot1, repeat: 1"
     animation__3="property: rotation; to:0 -180 0;startEvents :rot2, repeat: 1" animation__4="property: rotation; to:0 -240 0;startEvents :rot3, repeat: 1"
     animation__5="property: rotation; to:0 -300 0;startEvents :rot4, repeat: 1" animation__6="property: rotation; to:0 0 0;startEvents :rot5, repeat: 1"
     position ="0 0 -2"
