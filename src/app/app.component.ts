@@ -32,7 +32,6 @@ AFRAME.registerComponent('foo', {
     // this is the function to rotate and move all the cards to the right
     function full_body_carousel_right_move(cards) {
       console.log("entering this function")
-      console.log(cards)
       if (lastrot == "none") {
         cards.emit("rot0");
         lastrot = "rot0";
@@ -47,7 +46,6 @@ AFRAME.registerComponent('foo', {
     // this is the function to rotate and move all the cards to the left
     function full_body_carousel_left_move(cards) {
       console.log("entering this function")
-      console.log(cards)
       if (lastrot == "none" || lastrot == "rot0") {
         cards.emit("rot5");
         lastrot = "rot5";
