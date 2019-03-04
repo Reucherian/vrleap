@@ -15,6 +15,39 @@ require('leapjs-plugins')
 export class AppComponent {
   
 }
+    var lastrot = "none"
+    // this is the function defined to rotate and move all the cards to the right
+    function full_body_carousel_right_move(cards) {
+      console.log("entering this function")
+      console.log(cards)
+      if (lastrot == "none") {
+        cards.emit("rot0");
+        lastrot = "rot0";
+      } else {
+        console.log()
+        lastrot = "rot" + (String((Number(lastrot[3]) + 1) % 6));
+        console.log(lastrot)
+        cards.emit(lastrot);
+      }
+    }
+
+    // this is the function defined to rotate and move all the cards to the left
+    function full_body_carousel_left_move(cards) {
+      console.log("entering this function")
+      console.log(cards)
+      if (lastrot == "none" || lastrot == "rot0") {
+        // the emitting of rot5 event happens here
+        cards.emit("rot5");
+        lastrot = "rot5";
+      } else {
+        console.log()
+        lastrot = "rot" + (String((Number(lastrot[3]) - 1) % 6));
+        console.log(lastrot)
+        // the emit for an event based on the last rotation happens here
+        cards.emit(lastrot);
+      }
+    }
+
 // TODO : Implement a JSON based decision to decide which gestures are active in this view.
 AFRAME.registerComponent('leap',{
   init: function(){
@@ -62,12 +95,20 @@ AFRAME.registerComponent('leap',{
           var isHorizontal = Math.abs(gesture.direction[0]) > Math.abs(gesture.direction[1]);
           var swipeDirection = 'left';
           //Classify as right-left or up-down
+          // Todo : understanding the emit emission
+          // okay here I am just defining the object I will call emit on
+          var cards = document.getElementById('hexagon')
+          // next 
           if(isHorizontal){
             if(gesture.direction[0] > 0){
               swipeDirection = "right";
+              // notice that here I am calling the function with the object for which I can emit an event
+              full_body_carousel_right_move(cards)
             } 
             else {
               swipeDirection = "left";
+              // notice that here I am calling the function with the object for which I can emit an event
+              full_body_carousel_left_move(cards)
             }
           } 
           else { //vertical
@@ -114,7 +155,6 @@ AFRAME.registerComponent('circable',{
 AFRAME.registerComponent('foo', {
   init: function () {
     document.onkeydown = checkKey;
-    var lastrot = "none"
     // this.el.addEventListener('loaded', (e) => {
     //   box.emit('first');
     //   console.log("starting here")
@@ -132,35 +172,6 @@ AFRAME.registerComponent('foo', {
       }
     }
 
-    // this is the function to rotate and move all the cards to the right
-    function full_body_carousel_right_move(cards) {
-      console.log("entering this function")
-      console.log(cards)
-      if (lastrot == "none") {
-        cards.emit("rot0");
-        lastrot = "rot0";
-      } else {
-        console.log()
-        lastrot = "rot" + (String((Number(lastrot[3]) + 1) % 6));
-        console.log(lastrot)
-        cards.emit(lastrot);
-      }
-    }
-
-    // this is the function to rotate and move all the cards to the left
-    function full_body_carousel_left_move(cards) {
-      console.log("entering this function")
-      console.log(cards)
-      if (lastrot == "none" || lastrot == "rot0") {
-        cards.emit("rot5");
-        lastrot = "rot5";
-      } else {
-        console.log()
-        lastrot = "rot" + (String((Number(lastrot[3]) - 1) % 6));
-        console.log(lastrot)
-        cards.emit(lastrot);
-      }
-    }
   }
 })
 
